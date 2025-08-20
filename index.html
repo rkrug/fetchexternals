@@ -95,10 +95,11 @@
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
 <p>Create a manifest file <code>externals.json</code> in your project root directory and modify it as needed</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(fetchexternals)</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">manifest_template</span>(<span class="st">"externals.json)</span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="st">validate_manifest("</span>externals.json<span class="st">", stop_on_error = TRUE)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rkrug/fetchexternals" class="external-link">fetchexternals</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/manifest_template.html">manifest_template</a></span><span class="op">(</span><span class="st">"externals.json"</span><span class="op">)</span></span>
+<span><span class="fu">validate_manifest</span><span class="op">(</span><span class="st">"externals.json"</span>, stop_on_error <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>You need to adapt that file based on your situation.</p>
 <p>Then run in R:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
