@@ -42,7 +42,7 @@ Create a manifest file `externals.json` in your project root directory and modif
 ```r
 library(fetchexternals)
 
-manifest_template("externals.json)
+manifest_template("externals.json")
 validate_manifest("externals.json", stop_on_error = TRUE)
 ```
 
