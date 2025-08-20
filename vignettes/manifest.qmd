@@ -1,0 +1,110 @@
+---
+title: "Using and Validating the Manifest"
+format: html
+vignette: >
+  %\VignetteIndexEntry{Using and Validating the Manifest}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+## The externals manifest
+
+The **externals manifest** (`externals.json`) is a JSON file that tells the package
+where to fetch external Quarto files (or other assets) from GitHub repositories.
+
+A complete template is bundled with the package and can be accessed via:
+
+```{r}
+library(fetchexternals)
+
+# return the template as a list
+tpl <- manifest_template(NULL)
+
+# or write a copy into the project root
+manifest_template("externals.json")
+```
+
+See `?manifest_template` for the **full specification** of all fields,
+their allowed values, and defaults.
+
+---
+
+## Workflow
+
+The typical workflow is:
+
+1. **Create or copy a manifest**  
+   Use `manifest_template()` to generate `externals.json` in your project.
+
+2. **Edit the manifest**  
+   Fill in the repositories (`repo`), references (`ref`), files (`path`, `dest`),
+   and how to handle the source URL (`source_url` = `"frontmatter" | "file" | "none"`).
+
+3. **Validate the manifest**  
+   Run `manifest_validate()` to check that the manifest is well-formed.  
+   This ensures all required fields are present, values are valid,
+   and any missing environment variables (`api_env`) are reported.
+
+   ```{r}
+manifest_validate("externals.json")
+   ```
+
+   If you prefer to collect problems instead of stopping with an error:
+
+   ```{r}
+issues <- manifest_validate("externals.json", error_on_false = FALSE)
+if (length(issues)) {
+  writeLines(issues)
+}
+   ```
+
+4. **Fetch externals**  
+   Once validated, use `fetch_externals()` to download the referenced files and
+   integrate them into your site or workflow.
+
+---
+
+## Example
+
+Here is a minimal example manifest (JSON):
+
+```json
+{
+  "repos": [
+    {
+      "name": "ProjectA",
+      "repo": "example-org/project-a",
+      "ref": "v1.2.3",
+      "api_env": "PROJECTA_TOKEN",
+      "files": [
+        {
+          "path": "docs/page.qmd",
+          "dest": "external/ProjectA/page.qmd",
+          "source_url": "frontmatter"
+        }
+      ]
+    }
+  ],
+  "defaults": {
+    "fallback_to_default_branch": true,
+    "include_prereleases": false
+  }
+}
+```
+
+---
+
+## Key functions
+
+- [`manifest_template()`](../reference/manifest_template.html): Get or copy the template manifest (canonical schema documentation).  
+- [`manifest_validate()`](../reference/manifest_validate.html): Validate a manifest and detect errors or warnings.  
+- [`fetch_externals()`](../reference/fetch_externals.html): Fetch and integrate external files.
+

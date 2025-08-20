@@ -1,0 +1,51 @@
+{
+    "repos": [
+        {
+            "name": "ProjectA",
+            "repo": "example-org/project-a",
+            "ref": "latest",
+            "api_env": "PROJECTA_TOKEN",
+            "files": [
+                {
+                    "path": "docs/introduction.qmd",
+                    "dest": "external/ProjectA/introduction.qmd",
+                    "source_url": "frontmatter"
+                },
+                {
+                    "path": "docs/methods.qmd",
+                    "dest": "external/ProjectA/methods.qmd",
+                    "source_url": "frontmatter"
+                }
+            ]
+        },
+        {
+            "name": "ProjectB",
+            "repo": "example-org/project-b",
+            "ref": "v1.0.0",
+            "files": [
+                {
+                    "path": "reports/summary.html",
+                    "dest": "external/ProjectB/summary.html",
+                    "source_url": "file"
+                }
+            ]
+        },
+        {
+            "name": "ProjectC",
+            "repo": "example-org/project-c",
+            "ref": "main",
+            "api_env": "PROJECTC_TOKEN",
+            "files": [
+                {
+                    "path": "vignettes/overview.qmd",
+                    "dest": "external/ProjectC/overview.qmd",
+                    "source_url": "none"
+                }
+            ]
+        }
+    ],
+    "defaults": {
+        "fallback_to_default_branch": true,
+        "include_prereleases": false
+    }
+}

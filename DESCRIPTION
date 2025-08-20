@@ -1,0 +1,37 @@
+Package: fetchexternals
+Type: Package
+Title: Fetch External Quarto Files from GitHub Repositories
+Version: 0.1.0
+Authors@R: 
+    person(
+        "Your", "Name", 
+        email = "you@example.org", 
+        role = c("aut", "cre")
+    )
+Description: 
+    Provides a helper function `fetch_externals()` to pull Quarto (.qmd) files 
+    from multiple GitHub repositories into a local Quarto site. The manifest-driven 
+    workflow resolves the latest release (or a specified ref), downloads files 
+    via the GitHub Contents API with ETag caching, injects `source_url` metadata 
+    into the YAML front matter, and writes them to the configured destinations. 
+    This allows reproducible builds of unified Quarto websites from multiple 
+    authoritative repositories.
+License: MIT + file LICENSE
+URL: https://github.com/rkrug/fetchexternals,
+    https://rkrug.github.io/fetchexternals/
+BugReports: https://github.com/rkrug/fetchexternals/issues
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    jsonlite,
+    curl,
+    base64enc,
+    utils
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+VignetteBuilder: quarto
