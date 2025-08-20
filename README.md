@@ -1,9 +1,12 @@
+## **This package was created with ChatGPT 5 via the chat doing the heavy lifting!**
+
+## **If you are not feeling comfortable with this - no bad feelings from my side!**
+
+## This is pre-alph version and not ready for production use AT ALL!
+
 # fetchexternals
 
 Fetch external files from GitHub repositories into a local project.
-
-**This package was created with ChatGPT 5 via the chat doing the heavy lifting!**
-\*\*If you are not feeling comfortable with this - no bad feelings from my side!
 
 ## Overview
 
@@ -26,9 +29,10 @@ independently, and automatically integrate them into a single unified Quarto sit
 
 You can install the development version from GitHub:
 
+You have to figure this out yorself - this is not more then a proof of concept at the moment!
+
 ```r
-# install.packages("devtools")
-devtools::install_github("yourname/fetchexternals")
+
 ```
 
 ## Usage
