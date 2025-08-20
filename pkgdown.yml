@@ -3,7 +3,7 @@ pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
   manifest: manifest.html
-last_built: 2025-08-20T14:41Z
+last_built: 2025-08-20T14:58Z
 urls:
   reference: https://rkrug.github.io/fetchexternals/reference
   article: https://rkrug.github.io/fetchexternals/articles

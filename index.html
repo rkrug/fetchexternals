@@ -61,13 +61,14 @@
 <strong>If you are not feeling comfortable with this - no bad feelings from my side!</strong><a class="anchor" aria-label="anchor" href="#if-you-are-not-feeling-comfortable-with-this---no-bad-feelings-from-my-side"></a>
 </h2>
 </div>
-<div class="section level2">
-<h2 id="this-is-pre-alph-version-and-not-ready-for-production-use-at-all">This is pre-alph version and not ready for production use AT ALL!<a class="anchor" aria-label="anchor" href="#this-is-pre-alph-version-and-not-ready-for-production-use-at-all"></a>
-</h2>
+<div class="section level1">
+<div class="page-header"><h1 id="this-is-pre-alpha-version-and-not-ready-for-production-use-at-all">
+<strong>This is pre-alpha version and not ready for production use AT ALL!</strong><a class="anchor" aria-label="anchor" href="#this-is-pre-alpha-version-and-not-ready-for-production-use-at-all"></a>
+</h1></div>
 </div>
 <div class="section level1">
-<div class="page-header"><h1 id="fetchexternals">fetchexternals<a class="anchor" aria-label="anchor" href="#fetchexternals"></a>
-</h1></div>
+<h1 id="fetchexternals">fetchexternals<a class="anchor" aria-label="anchor" href="#fetchexternals"></a>
+</h1>
 <p>Fetch external files from GitHub repositories into a local project.</p>
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
@@ -94,11 +95,15 @@
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
 <p>Create a manifest file <code>externals.json</code> in your project root directory and modify it as needed</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">write_manifest_template</span>(<span class="st">"externals.json)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(fetchexternals)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">manifest_template</span>(<span class="st">"externals.json)</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="st">validate_manifest("</span>externals.json<span class="st">", stop_on_error = TRUE)</span></span></code></pre></div>
 <p>You need to adapt that file based on your situation.</p>
 <p>Then run in R:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rkrug/fetchexternals" class="external-link">fetchexternals</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co"># validate the created manifest file</span></span>
+<span><span class="fu">validate_manifest</span><span class="op">(</span><span class="st">"externals.json"</span>, stop_on_error <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Fetch into external/ and update front matter</span></span>
 <span><span class="fu"><a href="reference/fetch_externals.html">fetch_externals</a></span><span class="op">(</span><span class="st">"externals.json"</span><span class="op">)</span></span></code></pre></div>
