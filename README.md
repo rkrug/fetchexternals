@@ -2,7 +2,7 @@
 
 ## **If you are not feeling comfortable with this - no bad feelings from my side!**
 
-## This is pre-alph version and not ready for production use AT ALL!
+# **This is pre-alpha version and not ready for production use AT ALL!**
 
 # fetchexternals
 
@@ -40,7 +40,10 @@ You have to figure this out yorself - this is not more then a proof of concept a
 Create a manifest file `externals.json` in your project root directory and modify it as needed
 
 ```r
-write_manifest_template("externals.json)
+library(fetchexternals)
+
+manifest_template("externals.json)
+validate_manifest("externals.json", stop_on_error = TRUE)
 ```
 
 You need to adapt that file based on your situation.
@@ -48,7 +51,8 @@ You need to adapt that file based on your situation.
 Then run in R:
 
 ```r
-library(fetchexternals)
+# validate the created manifest file
+validate_manifest("externals.json", stop_on_error = TRUE)
 
 # Fetch into external/ and update front matter
 fetch_externals("externals.json")
